@@ -9,7 +9,7 @@ use App\Models\ShortUrlLog;
 Route::get('/', function () {
     $short_url_logs_all = ShortUrlLog::all();
     $statistics = ShortUrlLog::all();
-    return view('welcome',compact('short_url_logs_all'),compact('statistics'));
+    return view('pages.welcome', compact('short_url_logs_all'), compact('statistics'));
 });
 
 Route::post('/shorten', [ShortUrlController::class, 'create'])->name('short_url.create');
