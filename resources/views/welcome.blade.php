@@ -20,11 +20,15 @@
     </form>
 
     @foreach ($short_url_logs_all as $log)
-        <div>
-            <p>Original URL: <a href="{{ $log->original_url }}">{{ $log->original_url }}</a></p>
-            <p>Short URL: <a href="{{ route('short_url.redirect', $log->short_url) }}">{{ route('short_url.redirect', $log->short_url) }}</a></p>
-            <p>Created At: {{ $log->created_at }}</p><br>
-        </div>
+    @endforeach
+
+    <h2>Short URL Statistics</h2>
+    @foreach ($statistics as $shortUrl)
+    <p>
+        Original URL: <a href="{{ $log->original_url }}">{{ $log->original_url }}</a><br>
+        Short URL: <a href="{{ route('short_url.redirect', $shortUrl->short_url) }}">{{ route('short_url.redirect', $shortUrl->short_url) }}</a><br>
+        Click Count: {{ $shortUrl->click_count }}
+    </p>
     @endforeach
 
 </body>

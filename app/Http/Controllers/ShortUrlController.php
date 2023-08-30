@@ -53,4 +53,13 @@ class ShortUrlController extends Controller
         $shortUrl = ShortUrl::where('short_url', $code)->firstOrFail();
         return redirect($shortUrl->original_url);
     }
+
+    public function statistics()
+    {
+        // ดึงข้อมูล Short URL รวมถึงจำนวนคลิก
+        $shortUrls = ShortUrl::all();
+
+        // ส่งข้อมูลไปยังมุมมอง (View) เพื่อแสดงผล
+        return view('statistics', compact('shortUrls'));
+    }
 }
