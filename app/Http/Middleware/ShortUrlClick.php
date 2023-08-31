@@ -3,13 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use App\Models\ShortUrl;
-use App\Models\ShortUrlLog;
 
 
-class LogShortUrlClick
+class ShortUrlClick
 {
     /**
      * Handle an incoming request.
