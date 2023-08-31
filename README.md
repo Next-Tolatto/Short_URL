@@ -20,26 +20,30 @@
 
 - [Composer](https://getcomposer.org/)
 
+- [7-Zip](https://www.7-zip.org/)
+
 ## การติดตั้ง
 
-สำหรับการติดตั้ง Short URL Generator ที่พัฒนาด้วย Laravel 10 คุณสามารถทำตามขั้นตอนดังนี้:
+สำหรับการติดตั้ง Short URL Generator ที่พัฒนาด้วย Laravel คุณสามารถทำตามขั้นตอนดังนี้:
 
-- ดาวน์โหลดโปรเจ็กต์จาก GitHub หรือใช้คำสั่ง `git clone https://github.com/Next-Tolatto/Short_URL.git`
+- ดาวน์โหลดระบบจาก GitHub หรือใช้คำสั่ง `git clone https://github.com/Next-Tolatto/Short_URL.git`
 
-- เข้าไปในไดเรกทอรีของโครงการ `cd Short_URL`
+- แก้ไขไฟล์ php\php.ini โดยการลบ ; หน้าข้อความ `extension=sodium` และ `extension=gd` จากนั้นทำการบันทึก
 
-- edit file : php\php.ini โดยการลบ ; หน้าข้อความ
-`extension=sodium`
-`extension=gd`
+- เข้าไปในไดเรกทอรีของระบบ `cd Short_URL`
 
 - ติดตั้งแพ็กเกจเพิ่มเติม
 
-`composer require laravel/passport`
-`php artisan passport:keys`
-`omposer require simplesoftwareio/simple-qrcode`
-`composer require "ext-gd:*"`
+```composer require laravel/passport
+php artisan passport:keys
+php artisan key:generate
+composer require simplesoftwareio/simple-qrcode
+composer require "ext-gd:*"
+```
 
-- สร้างไฟล์ .env โดยคัดลอก .env.example มาแทนที่ และปรับแก้ค่าที่จำเป็น เช่น การเชื่อมต่อฐานข้อมูล
+- เปลื่ยนชื่อไฟล์ `.env.example` เป็น  `.env` และปรับแก้ค่าที่จำเป็น เช่น การเชื่อมต่อฐานข้อมูล
+
+- เป็นใช้งาน `MySQL` เพื่อเชื่อมต่อกับ Database
 
 - สร้างโครงสร้างฐานข้อมูล: `php artisan migrate`
 
