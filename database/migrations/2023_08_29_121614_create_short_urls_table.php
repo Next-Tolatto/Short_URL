@@ -10,8 +10,8 @@ class CreateShortUrlsTable extends Migration
     {
         Schema::create('short_urls', function (Blueprint $table) {
             $table->id();
-            $table->string('original_url');
-            $table->string('short_url')->unique();
+            $table->text('original_url');
+            $table->string('short_url', 255);
             $table->timestamps();
         });
     }
@@ -20,4 +20,4 @@ class CreateShortUrlsTable extends Migration
     {
         Schema::dropIfExists('short_urls');
     }
-};
+}

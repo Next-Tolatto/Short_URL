@@ -19,12 +19,11 @@
         <div>{!! session('qr_code') !!}</div>        
     @endif
 
-    @foreach ($short_url_logs_all as $log)
-    @endforeach
     <h2>Short URL Statistics</h2>
     @foreach ($statistics as $shortUrl)
     <p>
-        Original URL: <a href="{{ $log->original_url }}">{{ $log->original_url }}</a><br>
+        No: {{ $shortUrl->id }}<br>
+        Original URL: <a href="{{ $shortUrl->original_url }}">{{ $shortUrl->original_url }}</a><br>
         Short URL: <a href="{{ route('short_url.redirect', $shortUrl->short_url) }}">{{ route('short_url.redirect', $shortUrl->short_url) }}</a><br>
         Click Count: {{ $shortUrl->click_count }}
     </p>

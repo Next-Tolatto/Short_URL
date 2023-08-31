@@ -25,7 +25,7 @@ class LogShortUrlClick
             $shortCode = $request->route('code');
     
             // ค้นหา Short URL จากฐานข้อมูล
-            $shortUrl = ShortUrlLog::where('short_url', $shortCode)->first();
+            $shortUrl = ShortUrl::where('short_url', $shortCode)->first();
     
             if ($shortUrl) {
                 // เพิ่มจำนวนคลิกและบันทึกลงฐานข้อมูล

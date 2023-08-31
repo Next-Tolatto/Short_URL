@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('short_url_logs', function (Blueprint $table) {
+        Schema::table('short_urls', function (Blueprint $table) {
             $table->integer('click_count')->default(0);
         });
     }    
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('short_url_logs', function (Blueprint $table) {
+        Schema::table('short_urls', function (Blueprint $table) {
             //
         });
     }

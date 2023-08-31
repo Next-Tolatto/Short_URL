@@ -26,12 +26,6 @@ class ShortUrlController extends Controller
             'short_url' => $shortCode,
         ]);
 
-        // บันทึกประวัติการสร้าง Short URL
-        ShortUrlLog::create([
-            'original_url' => $request->input('original_url'),
-            'short_url' => $shortCode,
-        ]);
-
         // สร้าง QR Code โดยใช้ค่า short URL
         $qrCode = QrCode::size(245)->generate(route('short_url.redirect', $shortCode));
 
@@ -42,12 +36,6 @@ class ShortUrlController extends Controller
     }
 
     // ฟังก์ชันสำหรับแสดงประวัติ
-    public function history()
-    {
-        $logs = ShortUrlLog::latest()->get();
-        return view('short_url.history', compact('logs'));
-    }
-
     public function redirect($code)
     {
         $shortUrl = ShortUrl::where('short_url', $code)->firstOrFail();
