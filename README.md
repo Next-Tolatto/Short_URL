@@ -10,16 +10,36 @@
 ## เกี่ยวกับ Short URL Generator
 โปรเจ็กต์ Short URL Generator ในรุ่นนี้ถูกพัฒนาขึ้นโดยใช้ Laravel เป็นกรอบการพัฒนาเว็บแอปพลิเคชัน PHP ที่มีประสิทธิภาพสูงและใช้งานง่าย โปรเจ็กต์นี้ช่วยให้ผู้ใช้สามารถสร้าง URL ย่อ (Short URL) ได้อย่างง่ายและรวดเร็วเพื่อใช้ในการแชร์ลิงก์ในสื่อโซเชียลมีเดียหรือที่อื่น ๆ ที่ต้องการลิงก์ที่สั้นและสะดวก.
 
+## เครื่องมือที่จำเป็น
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+- [Git](https://git-scm.com/)
+
+- [XAMPP](https://www.apachefriends.org/download.html)
+
+- [Composer](https://getcomposer.org/)
+
 ## การติดตั้ง
+
 สำหรับการติดตั้ง Short URL Generator ที่พัฒนาด้วย Laravel 10 คุณสามารถทำตามขั้นตอนดังนี้:
 
-- ดาวน์โหลดโปรเจ็กต์จาก GitHub หรือใช้คำสั่ง `git clone: https://github.com/Next-Tolatto/Short_URL.git`
+- ดาวน์โหลดโปรเจ็กต์จาก GitHub หรือใช้คำสั่ง `git clone https://github.com/Next-Tolatto/Short_URL.git`
 
 - เข้าไปในไดเรกทอรีของโครงการ `cd Short_URL`
 
-- ติดตั้ง dependencies โดยใช้ `Composer: composer install`
+- edit file : php\php.ini โดยการลบ ; หน้าข้อความ
+`extension=sodium`
+`extension=gd`
 
-- สร้างไฟล์ .env โดยคัดลอก .env.example และปรับแก้ค่าที่จำเป็น เช่น การเชื่อมต่อฐานข้อมูล
+- ติดตั้งแพ็กเกจเพิ่มเติม
+
+`composer require laravel/passport`
+`php artisan passport:keys`
+`omposer require simplesoftwareio/simple-qrcode`
+`composer require "ext-gd:*"`
+
+- สร้างไฟล์ .env โดยคัดลอก .env.example มาแทนที่ และปรับแก้ค่าที่จำเป็น เช่น การเชื่อมต่อฐานข้อมูล
 
 - สร้างโครงสร้างฐานข้อมูล: `php artisan migrate`
 
@@ -29,8 +49,10 @@
 
 ## การใช้งาน
 
-หน้าหลักของแอพพลิเคชันจะแสดงแบบฟอร์มให้คุณใส่ URL ที่คุณต้องการย่อ
+1. หน้าหลักของแอพพลิเคชันจะแสดงแบบฟอร์มให้คุณใส่ URL ที่คุณต้องการย่อ
 
-คลิกปุ่ม "Shorten" เพื่อสร้าง Short URL และ QR Code สำหรับ URL ที่คุณใส่
+2. คลิกปุ่ม "Shorten" เพื่อสร้าง Short URL และ QR Code สำหรับ URL ที่คุณใส่
 
-Short URL ที่สร้างขึ้นจะแสดงหน้าเว็บไซต์และคุณสามารถคัดลอกและแชร์ได้ ส่วน QR Code สามารถสแกนและไปยังหน้าเว็บไซต์ที่ต้องการได้
+3. Short URL ที่สร้างขึ้นจะแสดงหน้าเว็บไซต์และคุณสามารถคัดลอกและแชร์ได้
+
+4. QR Code สามารถสแกนและไปยังหน้าเว็บไซต์ที่ต้องการได้
